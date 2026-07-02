@@ -1,0 +1,14 @@
+# Codex Templates
+
+Reusable templates for starting and maintaining Codex-friendly repositories.
+
+## Templates
+
+- `templates/repo-level-AGENTS.md` - a repo-level `AGENTS.md` template with repo map, commands, working rules, coding style, testing expectations, and done-when criteria.
+
+## How To Use
+
+1. Copy the template into a repository as `AGENTS.md`.
+2. Replace bracketed prompts with project-specific details.
+3. Keep the file short enough that Codex can read it at the start of a session.
+4. Update it whenever repeated guidance shows up in chat.
