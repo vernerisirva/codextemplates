@@ -5,6 +5,8 @@ Reusable templates for starting and maintaining Codex-friendly repositories.
 ## Templates
 
 - `templates/repo-level-AGENTS.md` - a repo-level `AGENTS.md` template with repo map, commands, working rules, coding style, testing expectations, and done-when criteria.
+- `guides/codex_session_audit_guide.md` - editable source for the weekly Codex session audit guide.
+- `output/pdf/codex_session_audit_guide.pdf` - printable weekly Codex session audit guide.
 
 ## How To Use
 
