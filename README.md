@@ -7,6 +7,7 @@ Reusable templates for starting and maintaining Codex-friendly repositories.
 - `templates/repo-level-AGENTS.md` - a repo-level `AGENTS.md` template with repo map, commands, working rules, coding style, testing expectations, and done-when criteria.
 - `docs/agent-context/architecture-map.md` - a smallest-useful architecture map template for Codex context.
 - `docs/agent-context/validation.md` - a validation command map template for install, typecheck, lint, test, package-specific commands, and done-when criteria.
+- `workflows/long-running-codex-goal.md` - a workflow for keeping long Codex tasks oriented around a persistent goal, checkpoints, validation, and handoff.
 - `guides/codex_session_audit_guide.md` - editable source for the weekly Codex session audit guide.
 - `output/pdf/codex_session_audit_guide.pdf` - printable weekly Codex session audit guide.
 
