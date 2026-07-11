@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Writer"
+  short_description: "Focused tests for changed behavior"
+  default_prompt: "Use $test-writer to design and add focused tests for this change, then validate them."

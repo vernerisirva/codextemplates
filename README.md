@@ -9,6 +9,7 @@ Reusable templates for starting and maintaining Codex-friendly repositories.
 - `docs/agent-context/validation.md` - a validation command map template for install, typecheck, lint, test, package-specific commands, and done-when criteria.
 - `workflows/long-running-codex-goal.md` - a workflow for keeping long Codex tasks oriented around a persistent goal, checkpoints, validation, and handoff.
 - `skills/pr-review-checklist/` - a reusable skill for evidence-backed PR reviews across correctness, tests, security, performance, maintainability, and scope.
+- `skills/test-writer/` - a reusable skill for focused tests, regression coverage, and validation of changed behavior.
 - `guides/codex_session_audit_guide.md` - editable source for the weekly Codex session audit guide.
 - `output/pdf/codex_session_audit_guide.pdf` - printable weekly Codex session audit guide.
 
