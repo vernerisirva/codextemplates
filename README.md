@@ -7,6 +7,7 @@ Reusable templates for starting and maintaining Codex-friendly repositories.
 - `templates/repo-level-AGENTS.md` - a repo-level `AGENTS.md` template with repo map, commands, working rules, coding style, testing expectations, and done-when criteria.
 - `docs/agent-context/architecture-map.md` - a smallest-useful architecture map template for Codex context.
 - `docs/agent-context/validation.md` - a validation command map template for install, typecheck, lint, test, package-specific commands, and done-when criteria.
+- `docs/agent-context/current-research.md` - a freshness-controlled template for time-sensitive research and its project impact.
 - `workflows/long-running-codex-goal.md` - a workflow for keeping long Codex tasks oriented around a persistent goal, checkpoints, validation, and handoff.
 - `skills/pr-review-checklist/` - a reusable skill for evidence-backed PR reviews across correctness, tests, security, performance, maintainability, and scope.
 - `skills/test-writer/` - a reusable skill for focused tests, regression coverage, and validation of changed behavior.
