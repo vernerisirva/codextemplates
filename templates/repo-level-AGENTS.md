@@ -56,6 +56,13 @@ If a command is unavailable, remove it rather than leaving a stale placeholder.
 - Use the lowest reasoning depth that can pass validation.
 - Record reusable lessons in this file or the nearest project documentation.
 
+## Context Loading
+
+- Start with this file, `docs/agent-context/validation.md`, and files named by the task.
+- Read only task-relevant files; do not scan the whole repository by default.
+- Load architecture, research, prompts, skills, or historical notes only when they affect the task.
+- Treat blank templates and archived planning records as reference material, not active instructions.
+
 ## Coding Style
 
 - Follow existing patterns before introducing new abstractions.
