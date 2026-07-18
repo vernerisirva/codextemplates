@@ -1,176 +1,60 @@
 # Validation
 
-Purpose: tell Codex what to run before claiming changes are done in this repository.
+Purpose: tell Codex the narrowest command that proves a change is complete.
 
-Keep this file exact. Replace bracketed commands with commands that actually work in the repo. Remove sections that do not apply.
+Replace bracketed values with commands that work in this repository. Remove rows that do not apply rather than preserving stale placeholders.
 
-## Current Commands
+## Command Map
 
-### Install
-
-```bash
-[install command]
-```
-
-Use when:
-
-- Dependencies are missing.
-- Lockfiles or dependency manifests change.
-- A fresh checkout needs setup.
-
-### Typecheck
-
-```bash
-[typecheck command]
-```
-
-Use when:
-
-- Typed source files change.
-- Public interfaces change.
-- Build or generated types may be affected.
-
-### Lint
-
-```bash
-[lint command]
-```
-
-Use when:
-
-- Source files, config files, docs, or formatting-sensitive files change.
-- The task asks for cleanup, style, or consistency.
-
-### Unit Tests
-
-```bash
-[unit test command]
-```
-
-Use when:
-
-- A small function, component, module, or package behavior changes.
-- A regression test can prove the fix.
-
-### Integration Tests
-
-```bash
-[integration test command]
-```
-
-Use when:
-
-- Multiple modules, services, routes, database layers, queues, or external boundaries are involved.
-- The change affects end-to-end behavior.
-
-### Build Or Package
-
-```bash
-[build command]
-```
-
-Use when:
-
-- Build output, bundling, packaging, generated assets, or deployment behavior may change.
-- The task touches framework config, dependency config, or public exports.
+| Check | Command | Run when |
+| --- | --- | --- |
+| Install | `[install command]` | Dependencies, manifests, or lockfiles change; or a fresh checkout needs setup. |
+| Typecheck | `[typecheck command]` | Typed code, public interfaces, generated types, or build contracts change. |
+| Lint | `[lint command]` | Source, configuration, documentation, or formatting-sensitive files change. |
+| Unit tests | `[unit test command]` | Focused behavior changes or a regression test can prove the fix. |
+| Integration tests | `[integration test command]` | The change crosses modules, services, storage, queues, routes, or external boundaries. |
+| Build/package | `[build command]` | Bundling, packaging, generated assets, framework configuration, or public exports change. |
 
 ## Package-Specific Commands
 
-Record commands that must run from a specific workspace, package, app, or service directory.
-
-| Area | Working Directory | Command | When To Run |
+| Area | Working directory | Command | Run when |
 | --- | --- | --- | --- |
-| `[app/package name]` | `[path]` | `[command]` | [when this command is required] |
-| `[app/package name]` | `[path]` | `[command]` | [when this command is required] |
+| `[app/package]` | `[path]` | `[command]` | [trigger] |
 
-Example:
+Add rows only for commands that must run from a specific app, package, or service directory.
 
-```bash
-cd apps/web
-[package-specific command]
-```
+## Checks By Change Type
 
-## What To Run By Task Type
+| Change | Minimum validation |
+| --- | --- |
+| Documentation only | `git diff --check`, configured docs lint, and readback of changed files. |
+| Small code change | Narrow unit test plus lint. |
+| Shared or cross-module behavior | Relevant package tests, integration tests, and typecheck. |
+| UI or visual behavior | Component test plus browser, end-to-end, or exact manual visual check. |
+| Data or migration | Migration validation, dry run when available, and relevant integration tests. |
+| Configuration or dependency | Install, typecheck, tests, and build as affected. |
 
-### Documentation-Only Change
+## Escalation Rule
 
-```bash
-git diff --check
-[docs lint command if configured]
-```
+Start with the narrowest command that covers the changed behavior. Escalate when:
 
-Also read back the changed files.
+- The narrow check fails or does not cover the behavior.
+- Shared code, public interfaces, or ownership boundaries are affected.
+- The change affects auth, billing, privacy, security, data formats, or migrations.
+- The task crosses packages, services, storage, or external integrations.
 
-### Small Code Change
+Do not run destructive commands without explicit approval. Prefer dry runs, backups, fixtures, or local test data.
 
-```bash
-[narrow unit test command]
-[lint command]
-```
+## Completion Gate
 
-Run the smallest test that proves the behavior first. Escalate only if shared behavior or public interfaces changed.
-
-### Cross-Module Or Shared Behavior Change
-
-```bash
-[relevant package/unit tests]
-[integration test command]
-[typecheck command]
-```
-
-Use when the change crosses ownership boundaries or affects shared code.
-
-### UI Or Visual Change
-
-```bash
-[component/unit test command]
-[browser/e2e/manual visual validation command]
-```
-
-Also capture a screenshot or describe the manual visual check when automated visual tests do not exist.
-
-### Data, Migration, Or Destructive Change
-
-```bash
-[migration check command]
-[dry-run command if available]
-[integration test command]
-```
-
-Do not run destructive commands unless the user explicitly approves them. Prefer dry runs, backups, fixtures, or local test data.
-
-### Configuration Or Dependency Change
-
-```bash
-[install command]
-[typecheck command]
-[test command]
-[build command]
-```
-
-Use when manifests, lockfiles, runtime config, CI config, or environment config changes.
-
-## Validation Escalation Rule
-
-Start with the narrowest command that can prove the task. Escalate when:
-
-- The narrow command fails.
-- The change affects shared code.
-- The change affects public APIs, data formats, auth, billing, privacy, or migrations.
-- The task crosses package or service boundaries.
-- The first validation command does not actually cover the changed behavior.
-
-## Done-When Criteria
-
-A task is done when:
+A task is complete when:
 
 - The requested behavior or artifact exists.
-- The relevant validation command has run and passed.
-- Changed files have been read back or inspected.
-- `git diff --check` passes when text files changed.
-- Tests were added or updated when behavior changed.
-- Any skipped validation is named with the reason.
-- The final response says what changed and how it was validated.
+- Relevant validation has passed.
+- Changed files have been inspected.
+- `git diff --check` passes for text changes.
+- Tests cover changed behavior when applicable.
+- Skipped validation and its reason are reported.
 
 ## Last Updated
 

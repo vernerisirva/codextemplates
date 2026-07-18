@@ -1,6 +1,8 @@
-# Current Research
+# Current Research Template
 
-Purpose: keep time-sensitive research small, traceable, and safe for Codex to use in the current project.
+Purpose: record time-sensitive research that Codex may safely reuse in the current project.
+
+> Template only. Do not treat bracketed placeholders as current findings or evidence.
 
 ## Research Scope
 
