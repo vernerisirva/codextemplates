@@ -11,6 +11,7 @@ Reusable templates for starting and maintaining Codex-friendly repositories.
 - `workflows/research-budget.md` - a bounded research workflow that starts with official sources and stops when the implementation decision is supported.
 - `workflows/long-running-codex-goal.md` - a workflow for keeping long Codex tasks oriented around a persistent goal, checkpoints, validation, and handoff.
 - `profiles/plan-mode-trigger-rules.md` - rules for using Plan Mode only when ambiguity, risk, or task structure justifies planning first.
+- `prompts/plan-mode.md` - a read-only Plan Mode prompt for identifying the smallest file set, implementation path, risks, validation, and approval gate.
 - `skills/pr-review-checklist/` - a reusable skill for evidence-backed PR reviews across correctness, tests, security, performance, maintainability, and scope.
 - `skills/test-writer/` - a reusable skill for focused tests, regression coverage, and validation of changed behavior.
 - `guides/codex_session_audit_guide.md` - editable source for the weekly Codex session audit guide.
