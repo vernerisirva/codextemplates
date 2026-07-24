@@ -54,6 +54,7 @@ If a command is unavailable, remove it rather than leaving a stale placeholder.
 - Preserve user work in a dirty worktree; never revert changes you did not make unless explicitly asked.
 - Ask before changing public APIs, data formats, migrations, security-sensitive code, or release behavior.
 - Use the lowest reasoning depth that can pass validation.
+- Use MCP servers, connectors, and plugins only when they provide data or actions required by the task; do not invoke them for speculative context.
 - Record reusable lessons in this file or the nearest project documentation.
 
 ## Context Loading
